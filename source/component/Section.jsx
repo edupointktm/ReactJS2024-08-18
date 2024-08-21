@@ -8,6 +8,7 @@ import Page_not_found from '../Page/Page_not_found'
 import LocalDB from '../Page/student/LocalDB'
 import Student_details from '../Page/student/Student_details'
 import Event_handling from '../Page/Event_handling'
+import Hook from '../Page/Hook'
 
 function Section() {
     return (
@@ -22,6 +23,7 @@ function Section() {
                     <Route path="/localdb" element={  <LocalDB />}/ >
                     <Route path="/studentdetails/:std_id" element={  <Student_details />}/ >
                     <Route path="/eventhandling" element={  <Event_handling />}/ >
+                    <Route path="/hook" element={  <Hook />}/ >
                     <Route path="*" element={  <Page_not_found />}/ >
                 </Routes>
            

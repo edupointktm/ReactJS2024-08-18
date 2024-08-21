@@ -34,7 +34,7 @@ function Header() {
                                 <a className="nav-link active" aria-current="page" href="#">API</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="#">HOOK</a>
+                                <Link className="nav-link active" aria-current="page" to="/hook">HOOK</Link>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link active" aria-current="page" href="#">Json Server</a>
