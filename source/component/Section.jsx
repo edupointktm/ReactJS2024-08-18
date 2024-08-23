@@ -9,6 +9,7 @@ import LocalDB from '../Page/student/LocalDB'
 import Student_details from '../Page/student/Student_details'
 import Event_handling from '../Page/Event_handling'
 import Hook from '../Page/Hook'
+import Api from '../Page/API/Api'
 
 function Section() {
     return (
@@ -24,6 +25,7 @@ function Section() {
                     <Route path="/studentdetails/:std_id" element={  <Student_details />}/ >
                     <Route path="/eventhandling" element={  <Event_handling />}/ >
                     <Route path="/hook" element={  <Hook />}/ >
+                    <Route path="/getapi" element={  <Api />}/ >
                     <Route path="*" element={  <Page_not_found />}/ >
                 </Routes>
            

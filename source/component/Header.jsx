@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+
 function Header() {
     return (
         <>
@@ -31,7 +32,7 @@ function Header() {
                                 <Link className="nav-link active" aria-current="page" to="/eventhandling">EventHand</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="#">API</a>
+                                <Link className="nav-link active" aria-current="page" to="/getapi">API</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link active" aria-current="page" to="/hook">HOOK</Link>
