@@ -10,6 +10,8 @@ import Student_details from '../Page/student/Student_details'
 import Event_handling from '../Page/Event_handling'
 import Hook from '../Page/Hook'
 import Api from '../Page/API/Api'
+import Logi_IN from '../Page/login/Logi_IN'
+import User_details from '../Page/User/User_details'
 
 function Section() {
     return (
@@ -26,6 +28,8 @@ function Section() {
                     <Route path="/eventhandling" element={  <Event_handling />}/ >
                     <Route path="/hook" element={  <Hook />}/ >
                     <Route path="/getapi" element={  <Api />}/ >
+                    <Route path="/login" element={  <Logi_IN />}/ >
+                    <Route path="/userdetails" element={  <User_details />}/ >
                     <Route path="*" element={  <Page_not_found />}/ >
                 </Routes>
            

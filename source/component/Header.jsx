@@ -41,7 +41,7 @@ function Header() {
                                 <a className="nav-link active" aria-current="page" href="#">Json Server</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="#">Login</a>
+                                <Link className="nav-link active" aria-current="page" to="/login">Login</Link>
                             </li>
                           
                         </ul>
