@@ -1,31 +1,49 @@
 {
-    "users":[
-        {
-            "id":1,
-            "user_name": "Prabhat Kumar Mallik",
-            "address": "Kathmandu",
-            "email":"prabhat@gmail.com",
-            "mobile_no":"98451247",
-            "user_type":"super admin",
-            "password":"123"
-        },
-        {
-            "id":2,
-            "user_name": "Mukesh Kumar Regmi",
-            "address": "Pokhara",
-            "email":"mukesh@gmail.com",
-            "mobile_no":"5471",
-            "user_type":"admin",
-            "password":"123"
-        },
-        {
-            "id":3,
-            "user_name": "Rita Kumar Dhakal",
-            "address": "Sundari",
-            "email":"rita@gmail.com",
-            "mobile_no":"558787888",
-            "user_type":"guest",
-            "password":"123"
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "user_name": "Prabhat Kumar Mallik",
+      "address": "Kathmandu",
+      "email": "prabhat@gmail.com",
+      "mobile_no": "98451247",
+      "user_type": "super admin",
+      "password": "123"
+    },
+    {
+      "id": 2,
+      "user_name": "Mukesh Kumar Regmi",
+      "address": "Pokhara",
+      "email": "mukesh@gmail.com",
+      "mobile_no": "5471",
+      "user_type": "admin",
+      "password": "123"
+    },
+    {
+      "id": 3,
+      "user_name": "Rita Kumar Dhakal",
+      "address": "Sundari",
+      "email": "rita@gmail.com",
+      "mobile_no": "558787888",
+      "user_type": "guest",
+      "password": "123"
+    },
+    {
+      "id": 4,
+      "user_name": "Ganesh Kumar Yadav",
+      "address": "Jhapa",
+      "email": "ganesh@gmail.com",
+      "mobile_no": "548755",
+      "user_type": "guest",
+      "password": "123"
+    },
+    {
+      "id": "1ff6",
+      "user_name": "rita",
+      "address": "Pokhara",
+      "email": "rita@gmail.com",
+      "mobile_no": "45435",
+      "user_type": "admin",
+      "password": "456"
+    }
+  ]
 }

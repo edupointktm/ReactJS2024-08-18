@@ -10,9 +10,28 @@ function User_details() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const[input_data, setInput_data]=useState(
+        {
+            user_name:'',
+            address: '',
+            email:'',
+            mobile_no:'',
+            user_type:'',
+            password:''
+        }   
+    )
+
+    let setData=(e)=>{
+        setInput_data({...input_data, [e.target.name]: e.target.value})
+    }
+
+    let saveTo_database = ()=>{
+        axios.post('http://localhost:3000/users', input_data).then(alert("Sucessfully save your Data"))
+    }
+
     useEffect(() => {
         getUserdetails();
-
+        
     }, [])
     let getUserdetails = () => {
         axios.get('http://localhost:3000/users').then((res) => { setUserdata(res.data) })
@@ -78,32 +97,32 @@ function User_details() {
 
                             <div className="form-group">
                                 <label htmlFor="exampleInputEmail1">User Name</label>
-                                <input type="text" className="form-control py-2" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                                <input type="text" name='user_name' onChange={setData} className="form-control py-2" id="exampleInputEmail1" aria-describedby="emailHelp"  />
                             </div>
 
                             <div className="form-group">
                                 <label htmlFor="exampleInputEmail1">Email</label>
-                                <input type="email" className="form-control py-2" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                                <input type="email" name='email' onChange={setData} className="form-control py-2" id="exampleInputEmail1" aria-describedby="emailHelp" />
                             </div>
 
                             <div className="form-group">
                                 <label htmlFor="exampleInputEmail1">Address</label>
-                                <input type="text" className="form-control py-2" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                                <input type="text" name='address' onChange={setData} className="form-control py-2" id="exampleInputEmail1" aria-describedby="emailHelp" />
                             </div>
 
                             <div className="form-group">
                                 <label htmlFor="exampleInputEmail1">Mobile No</label>
-                                <input type="number" className="form-control py-2" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                                <input type="number" name='mobile_no' onChange={setData} className="form-control py-2" id="exampleInputEmail1" aria-describedby="emailHelp" />
                             </div>
 
                             <div className="form-group">
                                 <label htmlFor="exampleInputEmail1">User Type</label>
-                                <input type="text" className="form-control py-2" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                                <input type="text" name='user_type' onChange={setData} className="form-control py-2" id="exampleInputEmail1" aria-describedby="emailHelp" />
                             </div>
 
                             <div className="form-group">
                                 <label htmlFor="exampleInputEmail1">Password</label>
-                                <input type="password" className="form-control py-2" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                                <input type="password" name='password' onChange={setData} className="form-control py-2" id="exampleInputEmail1" aria-describedby="emailHelp" />
                             </div>
                            
                         </div>
@@ -114,7 +133,7 @@ function User_details() {
                         <Button variant="secondary" onClick={handleClose}>
                             Close
                         </Button>
-                        <Button variant="primary" onClick={handleClose}>
+                        <Button variant="primary" onClick={saveTo_database}>
                             Save Changes
                         </Button>
                     </Modal.Footer>
