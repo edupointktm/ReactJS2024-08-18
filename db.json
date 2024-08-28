@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "user_name": "Prabhat Kumar Mallik",
       "address": "Kathmandu",
       "email": "prabhat@gmail.com",
@@ -10,25 +10,25 @@
       "password": "123"
     },
     {
-      "id": 2,
-      "user_name": "Mukesh Kumar Regmi",
-      "address": "Pokhara",
-      "email": "mukesh@gmail.com",
+      "id": "2",
+      "user_name": "",
+      "address": "Pokhara ktm",
+      "email": "mukesh",
       "mobile_no": "5471",
       "user_type": "admin",
       "password": "123"
     },
     {
-      "id": 3,
-      "user_name": "Rita Kumar Dhakal",
-      "address": "Sundari",
+      "id": "3",
+      "user_name": "Rita ",
+      "address": "Su",
       "email": "rita@gmail.com",
       "mobile_no": "558787888",
       "user_type": "guest",
       "password": "123"
     },
     {
-      "id": 4,
+      "id": "4",
       "user_name": "Ganesh Kumar Yadav",
       "address": "Jhapa",
       "email": "ganesh@gmail.com",
@@ -44,6 +44,42 @@
       "mobile_no": "45435",
       "user_type": "admin",
       "password": "456"
+    },
+    {
+      "id": "0821",
+      "user_name": "punit",
+      "address": "ktm",
+      "email": "puni@test.com",
+      "mobile_no": "345345",
+      "user_type": "admin",
+      "password": "3433"
+    },
+    {
+      "id": "ebcb",
+      "user_name": "ganesh",
+      "address": "brt",
+      "email": "ganesh@test.com",
+      "mobile_no": "4545",
+      "user_type": "guest",
+      "password": "4434"
+    },
+    {
+      "id": "8790",
+      "user_name": "Prakash",
+      "address": "Pkh",
+      "email": "pkm@gmail.com",
+      "mobile_no": "34543",
+      "user_type": "Guest",
+      "password": "234"
+    },
+    {
+      "id": "8790",
+      "user_name": "Prakash Hari Om",
+      "address": "Pkh",
+      "email": "pkm@gmail.com",
+      "mobile_no": "34543",
+      "user_type": "Guest",
+      "password": "234"
     }
   ]
 }
