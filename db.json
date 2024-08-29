@@ -10,15 +10,6 @@
       "password": "123"
     },
     {
-      "id": "2",
-      "user_name": "",
-      "address": "Pokhara ktm",
-      "email": "mukesh",
-      "mobile_no": "5471",
-      "user_type": "admin",
-      "password": "123"
-    },
-    {
       "id": "3",
       "user_name": "Rita ",
       "address": "Su",
@@ -64,22 +55,22 @@
       "password": "4434"
     },
     {
-      "id": "8790",
-      "user_name": "Prakash",
-      "address": "Pkh",
+      "id": "4c8d",
+      "user_name": "ganesh adhikari",
+      "address": "ktm",
       "email": "pkm@gmail.com",
-      "mobile_no": "34543",
-      "user_type": "Guest",
-      "password": "234"
+      "mobile_no": "34545",
+      "user_type": "admin",
+      "password": "333"
     },
     {
-      "id": "8790",
-      "user_name": "Prakash Hari Om",
-      "address": "Pkh",
-      "email": "pkm@gmail.com",
-      "mobile_no": "34543",
-      "user_type": "Guest",
-      "password": "234"
+      "id": "389b",
+      "user_name": "gop",
+      "address": "dsfd",
+      "email": "pop",
+      "mobile_no": "",
+      "user_type": "",
+      "password": ""
     }
   ]
 }

@@ -2,13 +2,19 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function User_details() {
+    let usenaviage = useNavigate()
     let [userdata, setUserdata] = useState([])
     let [isEdit, setIsEdit] = useState('')
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true)
+    const [search, setSearch] = useState('')
+    const [error, setError] = useState({})
 
     const [input_data, setInput_data] = useState(
         {
@@ -26,23 +32,37 @@ function User_details() {
     }
 
     let saveTo_database = () => {
-        if (isEdit == '') {
-            axios.post('http://localhost:3000/users', input_data)
-                .then(() => {
-                    alert("Sucessfully Add your new Data")
-                    handleClose()
-                    clear()
-                }
-                )
+        let dataValidation = {}
+        if (!input_data.user_name) {
+            dataValidation.user_name = "name is required"
         }
-        else{
-            axios.put('http://localhost:3000/users/'+isEdit, input_data)
-                .then(() => {
-                    alert("Sucessfully Modify your Data")
-                    handleClose()
-                    clear()
-                }
-                )
+        if (!input_data.address) {
+            dataValidation.address = "address is required"
+        }
+        if (!input_data.email) {
+            dataValidation.email = "email is required"
+        }
+        setError(dataValidation)
+        // console.log(object.key(error).length)
+        if (Object.keys(dataValidation).length == 0) {
+            if (isEdit == '') {
+                axios.post('http://localhost:3000/users', input_data)
+                    .then(() => {
+                        toast.success("Sucessfully Add your new Data")
+                        handleClose()
+                        clear()
+                    }
+                    )
+            }
+            else {
+                axios.put('http://localhost:3000/users/' + isEdit, input_data)
+                    .then(() => {
+                        toast.error("Sucessfully Modify your Data")
+                        handleClose()
+                        clear()
+                    }
+                    )
+            }
         }
     }
     let getEdit_data = (id) => {
@@ -66,6 +86,21 @@ function User_details() {
             password: ''
         })
     }
+    let testTostify=()=>{
+        toast.error("Wow so easy!");
+    }
+
+    let logOut=()=>{
+        usenaviage('/login')
+    }
+    let allowDelete = (id) => {
+        axios.delete('http://localhost:3000/users/' + id).then((res) => {
+            alert("Data Deleted sucesfully...")
+            getUserdetails();
+        })
+
+    
+    }
     return (
         <>
 
@@ -74,11 +109,15 @@ function User_details() {
             <div className="container">
                 <h3 className='text-danger'>USER DETAILS</h3>
                 <div className="row d-flex justify-content-around">
-                    <div className="col-6  py-3">
-                        <input type="text" /> <button className='btn btn-primary'>Search</button>
+                    <div className="col-4  py-3">
+                        <input type="text" onChange={(e) => { setSearch(e.target.value) }} />
+                        <button className='btn btn-primary' onClick={testTostify}>Search</button>
                     </div>
-                    <div className="col-6 py-3">
+                    <div className="col-5 py-3">
                         <button className='btn btn-primary' onClick={() => { handleShow() }}>ADD</button>
+                    </div>
+                    <div className="col-3 py-3">
+                        <button className='btn btn-danger' onClick={logOut}>Log Out</button>
                     </div>
                 </div>
             </div>
@@ -94,8 +133,9 @@ function User_details() {
                     <div className="col">Action</div>
                 </div>
             </div>
+
             <div className="container">
-                {userdata.map((ud, i) =>
+                {userdata.filter((ud) => ud.user_name.toLowerCase().includes(search.toLocaleLowerCase())).map((ud, i) =>
                     <div className="row py-2 border-bottom" key={i}>
                         <div className="col">{i + 1}</div>
                         <div className="col">{ud.user_name}</div>
@@ -105,7 +145,7 @@ function User_details() {
                         <div className="col">{ud.user_type}</div>
                         <div className="col">
                             <div className='px-2'> <button className='btn btn-primary' onClick={() => { handleShow(); getEdit_data(ud.id); setIsEdit(ud.id) }}  >EDIT</button>
-                                <button className='btn btn-danger'>Delete</button></div>
+                                <button className='btn btn-danger' onClick={() => { allowDelete(ud.id) }}>Delete</button></div>
                         </div>
                     </div>
 
@@ -128,16 +168,19 @@ function User_details() {
                             <div className="form-group">
                                 <label htmlFor="exampleInputEmail1">User Name</label>
                                 <input type="text" name='user_name' value={input_data.user_name} onChange={setData} className="form-control py-2" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                                <div className='text-danger'>{error.user_name}</div>
                             </div>
 
                             <div className="form-group">
                                 <label htmlFor="exampleInputEmail1">Email</label>
                                 <input type="email" name='email' value={input_data.email} onChange={setData} className="form-control py-2" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                                <div className='text-danger'>{error.email}</div>
                             </div>
 
                             <div className="form-group">
                                 <label htmlFor="exampleInputEmail1">Address</label>
                                 <input type="text" name='address' value={input_data.address} onChange={setData} className="form-control py-2" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                                <div className='text-danger'>{error.address}</div>
                             </div>
 
                             <div className="form-group">
@@ -169,6 +212,8 @@ function User_details() {
                     </Modal.Footer>
                 </form>
             </Modal>
+
+            <ToastContainer />
         </>
     )
 }
